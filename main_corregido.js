@@ -469,13 +469,6 @@ function mostrarDetallesTarea(info) {
     });
 }
 
-// Verificación inicial de autenticación
-if (typeof currentUser === 'undefined' || !currentUser) {
-    const userAuthenticated = localStorage.getItem('currentUser');
-    if (!userAuthenticated) {
-        window.location.href = 'login.html';
-    }
-}
 function editarTarea(tareaId) {
     const tareas = cargarTareas();
     const tarea = tareas.find(t => t.id === tareaId);
