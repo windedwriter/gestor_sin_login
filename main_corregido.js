@@ -1,6 +1,24 @@
 let calendar;
-
+// Agregar al inicio del archivo, justo antes del DOMContentLoaded
+if (window.location.href.includes('login.html')) {
+    window.location.href = 'index.html';
+}
+function verificarAlmacenamiento() {
+    if (!localStorage.getItem('tareas')) {
+        localStorage.setItem('tareas', JSON.stringify([]));
+    }
+}
 document.addEventListener('DOMContentLoaded', function() {
+    verificarAlmacenamiento();
+    console.log('DOM fully loaded');
+    inicializarCalendario();
+    window.addEventListener('beforeunload', function(e) {
+        // Prevenir cualquier redirección no deseada
+        if (window.location.href.includes('login.html')) {
+            e.preventDefault();
+            e.returnValue = '';
+        }
+    });
     console.log('DOM fully loaded');
     inicializarCalendario();
     actualizarListaTareas();
