@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 title: '¡Bienvenido!',
                 text: 'Inicio de sesión exitoso.'
             });
-            window.location.href = "index_corregido.html";
+            window.location.href = "gestor.html";
         } catch (error) {
             console.error(error);
             await Swal.fire({
